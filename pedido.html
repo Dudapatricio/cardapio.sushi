@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Pedido Recebido</title>
+  <link rel="stylesheet" href="src/styles/style.css">
+
+</head>
+<body>
+  <div class="card">
+    <h1>Pedido Confirmado! 🎉</h1>
+    <p>Você escolheu: <strong><span id="produto"></span></strong></p>
+    <p>Nosso chef já está preparando com muito carinho!</p>
+    <a href="cardapio.html" style="color: #D4AF37;">Voltar ao Cardápio</a>
+  </div>
+
+  <script>
+   const params = new URLSearchParams(window.location.search);
+  const pratoEscolhido = params.get("prato");
+
+  // Coloca o nome do prato na página
+  const spanProduto = document.getElementById("produto");
+  if (pratoEscolhido && spanProduto) {
+    // Decodifica e exibe o nome
+    spanProduto.textContent = decodeURIComponent(pratoEscolhido);
+  } else {
+    spanProduto.textContent = "Nenhum prato selecionado";
+  }
+  </script>
+</body>
+</html>
